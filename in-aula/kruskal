@@ -1,0 +1,38 @@
+def find(v):
+    if v == parents[v]: # se ele for o proprío pai, acaba a recursão; se houver um pai diferente dele mesmo, ele continua
+        return v
+    parents[v] = find(parents[v]) # ao passar em cada elemento, já marcamos ele com o parent, para quando outro find for realizado, não precisarmos passar de novo
+    return parents[v] 
+
+def union(u, v):
+    u = find(u) # encontrar o pai de u
+    v = find(v) # encontrar o pai de v
+    
+    parents[u] = v
+    
+    
+def kruskal(edges):
+    mst_weight = 0
+    mst_edges = []
+    
+    for w, u, v in edges:
+        if find(u) != find(v):
+            union(u, v)
+            mst_weight += w
+            mst_edges.append((w, u, v))
+        
+    return mst_weight, mst_edges
+
+
+
+n = int(input())
+
+parents = [i for i in range(n + 1)]
+edges = []
+
+for i in range(n):
+    w, u, v = [int(i) for i in input().split()]
+    edges.append((w, u, v))
+    
+edges.sort()
+print(kruskal(edges))

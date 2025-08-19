@@ -29,4 +29,4 @@ ligaríamos o 1 diretamente ao 4
 Para melhorar ainda mais essa técnica, ligamos os elementos que estão no caminho ao parent.
 
 1 - 2 - 3 - 4
-não ligamos somente o 1 ao 4, mas ligamos o 2 ao 4 
+não ligamos somente o 1 ao 4, mas ligamos o 2 ao 4 também
